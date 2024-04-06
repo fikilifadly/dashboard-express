@@ -9,10 +9,23 @@ const errorHandler = (err, req, res, next) => {
 		case "SequelizeUniqueConstraintError":
 			res.status(400).json({ message: err.errors[0].message });
 			break;
-		case "SequelizeDatabaseError":
-			res.status(400).json({ message: "Something Wrong On Database" });
+		case "ValidationError":
+			res.status(400).json({ message: err.errors[0].message });
 			break;
-		case `${err.name}`:
+		case "Invalid token":
+		case "Invalid Email/Password":
+		case "Email already exist":
+		case "Role Not Found":
+		case "Organization Not Found":
+		case "User Not Found":
+		case "Password is required":
+		case "Username is required":
+		case "Email is required":
+		case "Phone is required":
+		case "Bank name is required":
+		case "Bank account is required":
+		case "Address is required":
+		case "Bad Request":
 			res.status(statusCode).json({ message: err.name });
 		default:
 			res.status(statusCode).json({ message: "Internal Server Error" });

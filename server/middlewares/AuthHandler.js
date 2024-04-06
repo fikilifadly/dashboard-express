@@ -1,5 +1,5 @@
 const { User } = require("../models");
-const { verifyToken } = require("../lib");
+const { verifyToken } = require("../helpers");
 
 async function authentication(req, res, next) {
 	try {

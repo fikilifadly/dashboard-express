@@ -21,7 +21,9 @@ module.exports = {
 			roles_id: {
 				type: Sequelize.INTEGER,
 				references: {
-					model: "m501_roles",
+					model: {
+						tableName: "m501_roles",
+					},
 					key: "id",
 				},
 				onUpdate: "cascade",
@@ -30,7 +32,9 @@ module.exports = {
 			organization_id: {
 				type: Sequelize.INTEGER,
 				references: {
-					model: "m501_organization",
+					model: {
+						tableName: "m501_organization",
+					},
 					key: "id",
 				},
 				onUpdate: "cascade",
