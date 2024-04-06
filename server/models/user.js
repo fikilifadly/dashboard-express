@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
 		 * The `models/index` file will call this method automatically.
 		 */
 		static associate(models) {
-			User.hasMany(models.Role, { foreignKey: "roles_id" });
-			User.hasMany(models.Organization, { foreignKey: "organization_id" });
+			User.belongsTo(models.Role, { foreignKey: "roles_id" });
+			User.belongsTo(models.Organization, { foreignKey: "organization_id" });
 		}
 	}
 	User.init(
@@ -135,21 +135,9 @@ module.exports = (sequelize, DataTypes) => {
 	);
 
 	User.beforeCreate(async (user) => {
-		console.log(user, "=====", user.roles_id);
+		console.log(user, "=====model====", user.organization);
 
 		user.password = hashPass(user.password);
-		if (!user.roles_id) {
-			user.roles_id = 2;
-			console.log("first");
-		} else {
-			console.log("first 2");
-
-			const Role = await sequelize.models.Role.findOne({ where: { id: user.roles_id } });
-			if (!Role) throw { name: "Role Not Found", status: 404 };
-		}
-
-		const [organization, created] = await sequelize.models.Organization.findOrCreate({ where: { id: user.organization } });
-		console.log(organization, "====", created);
 	});
 
 	return User;

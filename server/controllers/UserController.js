@@ -27,9 +27,9 @@ module.exports = class UserCOntroller {
 
 	static async register(req, res, next) {
 		try {
-			console.log(req);
+			console.log(req.body, "====register====");
 
-			const { username, password, email, organization, nik, phone, bank_name, bank_account, address, roles_id, organization_id } = req.body;
+			let { username, password, email, organization, nik, phone, bank_name, bank_account, address, roles_id, organization_id } = req.body;
 
 			if (!username) throw { name: "Username is required", status: 400 };
 			if (!password) throw { name: "Password is required", status: 400 };
@@ -37,10 +37,24 @@ module.exports = class UserCOntroller {
 			const isExist = await User.findOne({ where: { email } });
 			if (isExist) throw { name: "Email already exist", status: 400 };
 
-			// const roles = await Role.findOne({ where: { id: roles_id } });
-			// if (!roles) throw { name: "Role Not Found", status: 404 };
+			if (roles_id != 1 || roles_id != 2) roles_id = 2;
+			const [existOrganization, created] = await Organization.findOrCreate({ where: { name: organization } });
 
-			await User.create({ username, password, email, organization, nik, phone, bank_name, bank_account, address, roles_id, organization_id });
+			console.log(existOrganization.id, existOrganization, "disini", created);
+
+			await User.create({
+				username,
+				password,
+				email,
+				organization,
+				nik,
+				phone,
+				bank_name,
+				bank_account,
+				address,
+				roles_id,
+				organization_id: existOrganization.id,
+			});
 
 			res.status(201).json({ message: "Register Success, Please Login" });
 		} catch (error) {
@@ -51,12 +65,10 @@ module.exports = class UserCOntroller {
 	static async editProfile(req, res, next) {
 		try {
 			const { erp_user_id } = req.user;
-			const { username, password, email, phone, bank_name, bank_account, address } = req.body;
 
 			const user = await User.findOne({ where: { erp_user_id } });
 
 			if (!user) throw { name: "User Not Found", status: 404 };
-			if (!req.body) throw { name: "Bad Request", status: 400 };
 
 			let updateUser = Object.fromEntries(Object.entries(req.body).filter(([key, value]) => key in user && value !== undefined && value !== null && value !== ""));
 
@@ -82,6 +94,9 @@ module.exports = class UserCOntroller {
 						model: Organization,
 					},
 				],
+				attributes: {
+					exclude: ["password"],
+				},
 				where: { erp_user_id },
 			});
 

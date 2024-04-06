@@ -16,10 +16,10 @@ const roles = [
 ];
 module.exports = {
 	async up(queryInterface, Sequelize) {
-		await queryInterface.bulkInsert("m501_roles", roles, {});
+		await queryInterface.bulkInsert("m501_role", roles, {});
 	},
 
 	async down(queryInterface, Sequelize) {
-		await queryInterface.bulkDelete("m501_roles", null, {});
+		await queryInterface.bulkDelete("m501_role", null, {});
 	},
 };

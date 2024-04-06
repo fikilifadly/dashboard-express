@@ -9,6 +9,6 @@ router.post("/register", UserController.register);
 
 router.use(authentication);
 router.get("/profile", UserController.getProfile);
-router.patch("/edit", UserController.editProfile);
+router.patch("/profile", UserController.editProfile);
 
 module.exports = router;
