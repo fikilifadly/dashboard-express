@@ -34,32 +34,28 @@ const Register = () => {
 				</div>
 				<div className="flex flex-col gap-3">
 					<label htmlFor="password" className="text-sm font-bold">
-						Password
+						Confirmation Password
 					</label>
 					<div className="flex w-full px-4 py-3 items-center object-scale-down rounded-md border border-gray-200 bg-gray-100">
 						<input type="password" placeholder="Password" className="pl-3 text-sm w-full bg-transparent text-md focus:outline-none" />
 					</div>
 				</div>
-				<div className="flex justify-between items-center">
-					<div className="flex gap-2 items-center">
-						<input type="radio" name="remember" id="remember" className="w-4 h-4" />
-						<label htmlFor="remember" className="text-sm font-bold">
-							Remember me
-						</label>
+				<div className="flex flex-col gap-3">
+					<label htmlFor="password" className="text-sm font-bold">
+						Confirmation Password
+					</label>
+					<div className="flex w-full px-4 py-3 items-center object-scale-down rounded-md border border-gray-200 bg-gray-100">
+						<input type="password" placeholder="Password" className="pl-3 text-sm w-full bg-transparent text-md focus:outline-none" />
 					</div>
-					<Link className="text-sm font-bold text-[#31ae1d]">Forgot Password?</Link>
 				</div>
 				<PhoneInput defaultCountry="ID" useNationalFormatForDefaultCountryValue={true} withCountryCallingCode={true} international={true} value={value} onChange={setValue} />
 
 				<button className="w-full px-4 py-3 bg-gradient-to-r from-[#31ae1d] from-0% to-[#1e8d91] to-70% text-white font-bold text-md rounded-md hover:bg-[#1e8d91]">Login</button>
 			</form>
 
-			<p>
-				Don&apos;t have an account?{" "}
-				<Link to="/register" className="text-[#31ae1d] font-bold">
-					Get Started
-				</Link>
-			</p>
+			<Link to="/login" className="text-[#31ae1d] font-bold text-center">
+				Back
+			</Link>
 		</div>
 	);
 };

@@ -3,13 +3,12 @@ import { Link } from "react-router-dom";
 import person from "../assets/icons/person.png";
 import lock from "../assets/icons/lock.png";
 
+import Logo from "../components/Logo";
+
 const Login = () => {
 	return (
 		<div className="flex flex-col gap-7">
-			<div className="flex gap-3 items-center">
-				<button className="rounded-full w-[30px] h-[30px] text-white font-bold text-xl flex items-center justify-center custom-bg">B</button>
-				<span className="font-bold text-lg">B2b Portal</span>
-			</div>
+			<Logo color="black" />
 			<h1 className="font-bold text-2xl">Login to your account</h1>
 			<form className="flex flex-col gap-7">
 				<div className="flex flex-col gap-3">
@@ -37,7 +36,9 @@ const Login = () => {
 							Remember me
 						</label>
 					</div>
-					<Link className="text-sm font-bold text-[#31ae1d]">Forgot Password?</Link>
+					<Link to="/login" className="text-sm font-bold text-[#31ae1d]">
+						Forgot Password?
+					</Link>
 				</div>
 				<button className="w-full px-4 py-3 custom-bg text-white font-bold text-md rounded-md hover:bg-[#1e8d91]">Login</button>
 			</form>
