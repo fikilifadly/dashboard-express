@@ -9,7 +9,7 @@ const SideBar = () => {
 
 	return (
 		<>
-			<div className="p-5 flex flex-col gap-7 justify-between ">
+			<div className="px-5 py-7 flex flex-col gap-7 justify-between ">
 				<Logo color="white" size="large" />
 
 				<span className="text-white mt-5 block">Menu</span>
@@ -22,13 +22,13 @@ const SideBar = () => {
 							</NavLink>
 						</li>
 						<li>
-							<NavLink to="/tasks" className={isActive}>
+							<NavLink to="/vendor" className={isActive}>
 								<img src={vendor} alt="icon dashboard" className=" object-scale-down w-[20px] h-[20px]  filter invert" />
 								<span className="text-md">Vendor/Supplier</span>
 							</NavLink>
 						</li>
 						<li>
-							<NavLink to="/subtasks" className={isActive}>
+							<NavLink to="/order" className={isActive}>
 								<img src={order} alt="icon dashboard" className=" object-scale-down w-[20px] h-[20px]  filter invert" />
 								<span className="text-md">Customer/Dealer</span>
 							</NavLink>

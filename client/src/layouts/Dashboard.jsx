@@ -11,7 +11,7 @@ const Dashboard = () => {
 				<div className="w-1/6 h-screen sticky top-0 bg-[#262626]">
 					<SideBar />
 				</div>
-				<div className="w-5/6 min-h-screen max-h-screen overflow-x-auto py-5 px-5">
+				<div className="w-5/6 min-h-screen max-h-screen overflow-x-auto py-7 px-5">
 					<UserBar />
 					<Outlet />
 				</div>

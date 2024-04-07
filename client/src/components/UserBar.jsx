@@ -1,11 +1,19 @@
+import { useState } from "react";
+
 import search from "../assets/icons/search.png";
 import notification from "../assets/icons/notification.png";
 import expand from "../assets/icons/expand.png";
 import collapse from "../assets/icons/collapse.png";
 
 const UserBar = () => {
+	const [show, setShow] = useState(true);
+
+	const toggleShow = () => {
+		setShow(!show);
+	};
+
 	return (
-		<div className="flex justify-between">
+		<div className="flex justify-between mb-8">
 			<div className="bg-gray-100">
 				<div className="flex w-[350px] px-4 py-2 items-center object-scale-down rounded-lg border border-gray-200 bg-gray-100">
 					<img src={search} alt="lock" className=" object-scale-down w-[20px] h-[20px] opacity-50" />
@@ -13,8 +21,8 @@ const UserBar = () => {
 				</div>
 			</div>
 
-			<div className="flex gap-3">
-				<div className="flex gap-5">
+			<div className="flex gap-10">
+				<div className={`flex gap-5 transition-all duration-1000 ease-in-out overflow-hidden ${show ? "w-100 h-auto" : "w-0 h-0"}`}>
 					<div className="flex flex-col text-right">
 						<span className="font-bold text-sm">Chintia Pradipta</span>
 						<span className="text-gray-500 text-sm">Cyintia Pradipta xxxx</span>
@@ -27,15 +35,14 @@ const UserBar = () => {
 						/>
 					</div>
 				</div>
-				<button>
-					<img src={notification} alt="notfication" />
-				</button>
-				<button>
-					<img src={expand} alt="expand" />
-				</button>
-				<button>
-					<img src={collapse} alt="collapse" />
-				</button>
+				<div className="flex gap-5 mr-3">
+					<button>
+						<img src={notification} alt="notfication" />
+					</button>
+					<button onClick={toggleShow}>
+						<img src={show ? collapse : expand} alt="showicon" />
+					</button>
+				</div>
 			</div>
 		</div>
 	);
