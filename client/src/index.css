@@ -2,8 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@layer utilities {
+  .custom-bg-text{
+    background: linear-gradient(90deg,#31ae1d 0%,#1e8d91 70%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+  }
+  .custom-bg {
+    background: linear-gradient(90deg,#31ae1d 0%,#1e8d91 70%);
+  }
+
 }
+
+
+

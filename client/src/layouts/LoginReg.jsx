@@ -7,14 +7,14 @@ import bgauth from "../assets/bg-auth.png";
 const Auth = () => {
 	return (
 		<>
-			<div className="w-full h-screen flex">
-				<div className="w-3/6 h-full p-10">
+			<main className="w-full h-screen flex">
+				<div className="w-3/6 h-full py-20 px-32">
 					<Outlet />
 				</div>
 				<div className="w-3/6 h-full">
-					<img src={bgauth} alt="bg-auth" loading="lazy" title="bg-auth" className="w-full h-full" />
+					<img src={bgauth} alt="bg-auth" title="bg-auth" className="w-full h-full" />
 				</div>
-			</div>
+			</main>
 			<ToastContainer />
 		</>
 	);
