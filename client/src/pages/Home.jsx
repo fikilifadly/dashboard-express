@@ -10,45 +10,101 @@ const data = [
 		name: "Vendors/Supplier",
 		total: 1000,
 		improve: 23,
+		datasets: [
+			{
+				data: [1, 3, 2, 5],
+				borderColor: "green",
+			},
+		],
+		labels: ["1", "2", "3", "4"],
 		stats: 1,
 	},
 	{
 		name: "Customer/Dealer",
 		total: 920,
+		datasets: [
+			{
+				data: [1, 3, 2, 5],
+				borderColor: "red",
+			},
+		],
+		labels: ["1", "2", "3", "4"],
 		improve: 10,
 		stats: 2,
 	},
 	{
 		name: "Products SKU",
 		total: 620,
+		datasets: [
+			{
+				borderColor: "green",
+				data: [1, 3, 2, 5],
+			},
+		],
+		labels: ["1", "2", "3", "4"],
 		improve: 23,
 		stats: 1,
 	},
 	{
 		name: "Purchase Order",
 		total: 3200,
+		datasets: [
+			{
+				borderColor: "green",
+				data: [1, 3, 2, 5],
+			},
+		],
+		labels: ["1", "2", "3", "4"],
 		improve: 23,
 		stats: 1,
 	},
 	{
+		datasets: [
+			{
+				data: [1, 3, 2, 5],
+				borderColor: "green",
+			},
+		],
+		labels: ["1", "2", "3", "4"],
 		name: "Sales Order",
 		total: 2000,
 		improve: 23,
 		stats: 1,
 	},
 	{
+		datasets: [
+			{
+				data: [1, 3, 2, 5],
+				borderColor: "red",
+			},
+		],
+		labels: ["1", "2", "3", "4"],
 		name: ".......",
 		total: 210,
 		improve: 14,
 		stats: 2,
 	},
 	{
+		datasets: [
+			{
+				data: [1, 3, 2, 5],
+				borderColor: "green",
+			},
+		],
+		labels: ["1", "2", "3", "4"],
 		name: ".......",
 		total: 620,
 		improve: 23,
 		stats: 1,
 	},
 	{
+		datasets: [
+			{
+				data: [1, 3, 2, 5],
+				borderColor: "green",
+			},
+		],
+		labels: ["1", "2", "3", "4"],
 		name: ".......",
 		total: 5200,
 		improve: 23,
@@ -70,7 +126,6 @@ const Home = () => {
 			<div className="flex flex-col gap-7 px-7 pt-5 pb-10 border-2 border-gray-200 rounded-lg">
 				{/* section main */}
 				<DashBoardHeadline title={"Dashboard"} description={"These companies have a dashboard"} />
-
 				<div className="flex flex-col gap-5">
 					<Filters data={timePeriods} onClick={onClickActive} active={active} />
 					<GraphCards data={data} status={status} />

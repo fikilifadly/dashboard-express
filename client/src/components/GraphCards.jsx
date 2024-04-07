@@ -1,4 +1,5 @@
 import { convertNumber } from "../utils";
+import Chart from "./Chart";
 
 const GraphCards = ({ data, status }) => {
 	return (
@@ -21,7 +22,8 @@ const GraphCards = ({ data, status }) => {
 								{status}
 							</p>
 						</div>
-						<span className="text-xl font-bold">Graphic</span>
+
+						<Chart datasets={el.datasets} labels={el.labels} />
 					</div>
 				</div>
 			))}
