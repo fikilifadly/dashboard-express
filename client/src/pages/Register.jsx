@@ -96,7 +96,7 @@ const Register = () => {
 								Email Account
 							</label>
 							<div className="flex w-full px-4 py-3 items-center object-scale-down rounded-md border border-gray-200 bg-gray-100">
-								<input type="email" placeholder="Email Account" className="pl-3 text-sm w-full bg-transparent text-md focus:outline-none" />
+								<input required type="email" placeholder="Email Account" className="pl-3 text-sm w-full bg-transparent text-md focus:outline-none" />
 							</div>
 						</div>
 						<div className="flex flex-col gap-3">
@@ -104,7 +104,7 @@ const Register = () => {
 								Confirmation Password
 							</label>
 							<div className="flex w-full px-4 py-3 items-center object-scale-down rounded-md border border-gray-200 bg-gray-100">
-								<input type="password" placeholder="Password" className="pl-3 text-sm w-full bg-transparent text-md focus:outline-none" />
+								<input required type="password" placeholder="Password" className="pl-3 text-sm w-full bg-transparent text-md focus:outline-none" />
 							</div>
 						</div>
 						<div className="flex flex-col gap-3">
@@ -112,7 +112,7 @@ const Register = () => {
 								Confirmation Password
 							</label>
 							<div className="flex w-full px-4 py-3 items-center object-scale-down rounded-md border border-gray-200 bg-gray-100">
-								<input type="password" placeholder="Password" className="pl-3 text-sm w-full bg-transparent text-md focus:outline-none" />
+								<input required type="password" placeholder="Password" className="pl-3 text-sm w-full bg-transparent text-md focus:outline-none" />
 							</div>
 						</div>
 						<PhoneInput defaultCountry="ID" useNationalFormatForDefaultCountryValue={true} withCountryCallingCode={true} international={true} value={value} onChange={setValue} />
@@ -125,7 +125,7 @@ const Register = () => {
 								Username
 							</label>
 							<div className="flex w-full px-4 py-3 items-center object-scale-down rounded-md border border-gray-200 bg-gray-100">
-								<input type="text" placeholder="username" className="pl-3 text-sm w-full bg-transparent text-md focus:outline-none" />
+								<input required type="text" placeholder="username" className="pl-3 text-sm w-full bg-transparent text-md focus:outline-none" />
 							</div>
 						</div>
 						<div className="flex flex-col gap-3">
@@ -133,7 +133,7 @@ const Register = () => {
 								NIK
 							</label>
 							<div className="flex w-full px-4 py-3 items-center object-scale-down rounded-md border border-gray-200 bg-gray-100">
-								<input type="text" placeholder="NIK" className="pl-3 text-sm w-full bg-transparent text-md focus:outline-none" />
+								<input required type="text" placeholder="NIK" className="pl-3 text-sm w-full bg-transparent text-md focus:outline-none" />
 							</div>
 						</div>
 						<div className="flex flex-col gap-3">
@@ -141,7 +141,7 @@ const Register = () => {
 								Organization
 							</label>
 							<div className="flex w-full px-4 py-3 items-center object-scale-down rounded-md border border-gray-200 bg-gray-100">
-								<input type="text" placeholder="Organization" className="pl-3 text-sm w-full bg-transparent text-md focus:outline-none" />
+								<input required type="text" placeholder="Organization" className="pl-3 text-sm w-full bg-transparent text-md focus:outline-none" />
 							</div>
 						</div>
 						<div className="flex flex-col gap-3">
@@ -149,7 +149,7 @@ const Register = () => {
 								Address
 							</label>
 							<div className="flex w-full px-4 py-3 items-center object-scale-down rounded-md border border-gray-200 bg-gray-100">
-								<input type="text" placeholder="adress" className="pl-3 text-sm w-full bg-transparent text-md focus:outline-none" />
+								<input required type="text" placeholder="adress" className="pl-3 text-sm w-full bg-transparent text-md focus:outline-none" />
 							</div>
 						</div>
 					</>
@@ -161,7 +161,7 @@ const Register = () => {
 								Bank Name
 							</label>
 							<div className="flex w-full px-4 py-3 items-center object-scale-down rounded-md border border-gray-200 bg-gray-100">
-								<input type="text" placeholder="Bank Name" className="pl-3 text-sm w-full bg-transparent text-md focus:outline-none" />
+								<input required type="text" placeholder="Bank Name" className="pl-3 text-sm w-full bg-transparent text-md focus:outline-none" />
 							</div>
 						</div>
 						<div className="flex flex-col gap-3">
@@ -169,7 +169,7 @@ const Register = () => {
 								bank_account
 							</label>
 							<div className="flex w-full px-4 py-3 items-center object-scale-down rounded-md border border-gray-200 bg-gray-100">
-								<input type="text" placeholder="bank_account" className="pl-3 text-sm w-full bg-transparent text-md focus:outline-none" />
+								<input required type="text" placeholder="bank_account" className="pl-3 text-sm w-full bg-transparent text-md focus:outline-none" />
 							</div>
 						</div>
 					</>
