@@ -34,6 +34,11 @@ const userSlice = createSlice({
 		resetStepRegister: (state) => {
 			state.stepRegister = 1;
 		},
+		minStepRegister: (state) => {
+			if (state.stepRegister > 1) {
+				state.stepRegister--;
+			}
+		},
 	},
 	extraReducers: (builder) => {
 		builder
@@ -167,5 +172,5 @@ export const getProfile = createAsyncThunk("user/getProfile", async (data, { rej
 	}
 });
 
-export const { setNullCurrentUser, setRegister, resetStepRegister } = userSlice.actions;
+export const { setNullCurrentUser, setRegister, resetStepRegister, minStepRegister } = userSlice.actions;
 export default userSlice.reducer;

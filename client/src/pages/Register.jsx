@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { register, resetStepRegister, setRegister } from "../stores/userslice";
+import { minStepRegister, register, resetStepRegister, setRegister } from "../stores/userslice";
 const Register = () => {
 	const { stepRegister, registerData } = useSelector((state) => state.user);
 
@@ -177,9 +177,9 @@ const Register = () => {
 					{stepRegister == 3 ? "Register" : "Next"}
 				</button>
 			</form>
-			<Link to="/login" className="text-[#31ae1d] font-bold text-center">
+			<button className="text-[#31ae1d] font-bold text-center" onClick={() => dispatch(minStepRegister())}>
 				Back
-			</Link>
+			</button>
 		</div>
 	);
 };
