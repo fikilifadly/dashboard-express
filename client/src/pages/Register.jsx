@@ -71,7 +71,7 @@ const Register = () => {
 	return (
 		<div className="flex flex-col gap-7">
 			<div className="flex flex-col gap-3 justify-center items-center">
-				<h1 className="font-bold text-2xl custom-bg-text">Registration</h1>
+				<h1 className="font-bold text-2xl ">Registration</h1>
 				<div className="flex justify-center gap-3 items-center">
 					<div className="flex flex-col items-center gap-2">
 						<button className={active(1)}>1</button>
@@ -88,6 +88,7 @@ const Register = () => {
 				</div>
 			</div>
 			<form className="flex flex-col gap-7" onSubmit={submitHandler}>
+				<h2 className="font-bold text-2xl custom-bg-text">{stepRegister == 1 ? "User Info" : stepRegister == 2 ? "Company Info" : "Package"}</h2>
 				{stepRegister == 1 && (
 					<>
 						<div className="flex flex-col gap-3">
