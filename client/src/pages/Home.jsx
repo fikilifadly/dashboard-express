@@ -4,15 +4,17 @@ import Filters from "../components/Filters";
 import GraphCards from "../components/GraphCards";
 import DashBoardHeadline from "../components/DashBoardHeadline";
 
+// Hardcode Data
+
 const timePeriods = ["24 hours", "7 days", "30 days", "3 month", "6 month", "12 month"];
-const data = [
+const dataLine = [
 	{
 		name: "Vendors/Supplier",
 		total: 1000,
 		improve: 23,
 		datasets: [
 			{
-				data: [1, 3, 2, 5],
+				data: [1, 5, 2, 9],
 				borderColor: "green",
 			},
 		],
@@ -24,7 +26,7 @@ const data = [
 		total: 920,
 		datasets: [
 			{
-				data: [1, 3, 2, 5],
+				data: [1, 5, 2, 9],
 				borderColor: "red",
 			},
 		],
@@ -38,7 +40,7 @@ const data = [
 		datasets: [
 			{
 				borderColor: "green",
-				data: [1, 3, 2, 5],
+				data: [1, 5, 2, 9],
 			},
 		],
 		labels: ["1", "2", "3", "4"],
@@ -51,7 +53,7 @@ const data = [
 		datasets: [
 			{
 				borderColor: "green",
-				data: [1, 3, 2, 5],
+				data: [1, 5, 2, 9],
 			},
 		],
 		labels: ["1", "2", "3", "4"],
@@ -61,7 +63,7 @@ const data = [
 	{
 		datasets: [
 			{
-				data: [1, 3, 2, 5],
+				data: [1, 5, 2, 9],
 				borderColor: "green",
 			},
 		],
@@ -74,7 +76,7 @@ const data = [
 	{
 		datasets: [
 			{
-				data: [1, 3, 2, 5],
+				data: [1, 5, 2, 9],
 				borderColor: "red",
 			},
 		],
@@ -87,7 +89,7 @@ const data = [
 	{
 		datasets: [
 			{
-				data: [1, 3, 2, 5],
+				data: [1, 5, 2, 9],
 				borderColor: "green",
 			},
 		],
@@ -100,7 +102,7 @@ const data = [
 	{
 		datasets: [
 			{
-				data: [1, 3, 2, 5],
+				data: [1, 5, 2, 9],
 				borderColor: "green",
 			},
 		],
@@ -112,6 +114,15 @@ const data = [
 	},
 ];
 
+const dataBar = {
+	datasets: [
+		{
+			data: [1200, 800, 10000, 6000, 11000, 8000, 11000, 12000, 6500, 13000, 1000, 85000],
+		},
+	],
+	labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+};
+
 const Home = () => {
 	const [active, setActive] = useState(timePeriods[2]);
 	const status = statusPeriod(active);
@@ -121,6 +132,8 @@ const Home = () => {
 		setActive(name.value);
 	};
 
+	console.log(dataBar);
+
 	return (
 		<>
 			<div className="flex flex-col gap-7 px-7 pt-5 pb-10 border-2 border-gray-200 rounded-lg">
@@ -128,9 +141,10 @@ const Home = () => {
 				<DashBoardHeadline title={"Dashboard"} description={"These companies have a dashboard"} />
 				<div className="flex flex-col gap-5">
 					<Filters data={timePeriods} onClick={onClickActive} active={active} />
-					<GraphCards data={data} status={status} />
+					<GraphCards data={dataLine} status={status} />
 				</div>
 			</div>
+			<div className="flex justify-between gap3">{/* <BarChart labels={dataBar.labels} datasets={dataBar.datasets} /> */}</div>
 		</>
 	);
 };

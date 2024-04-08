@@ -1,13 +1,24 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import search from "../assets/icons/search.png";
 import notification from "../assets/icons/notification.png";
 import expand from "../assets/icons/expand.png";
 import collapse from "../assets/icons/collapse.png";
+import { setNullCurrentUser } from "../stores/userslice";
 
 const UserBar = () => {
 	const [show, setShow] = useState(true);
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
 
+	const logout = () => {
+		localStorage.removeItem("access_token");
+		localStorage.removeItem("user");
+		dispatch(setNullCurrentUser());
+		navigate("/login");
+	};
 	const toggleShow = () => {
 		setShow(!show);
 	};
@@ -22,10 +33,10 @@ const UserBar = () => {
 			</div>
 
 			<div className="flex gap-10">
-				<div className={`flex gap-5 transition-all duration-1000 ease-in-out overflow-hidden ${show ? "w-100 h-auto" : "w-0 h-0"}`}>
-					<div className="flex flex-col text-right">
-						<span className="font-bold text-sm">Chintia Pradipta</span>
-						<span className="text-gray-500 text-sm">Cyintia Pradipta xxxx</span>
+				<div className={`group flex gap-5 transition-all duration-1000 ease-in-out ${show ? "w-100 h-auto" : "w-0 h-0"} relative`}>
+					<div className={`flex flex-col text-right`}>
+						<span className={`font-bold text-sm ${show ? "block" : "hidden"}`}>Chintia Pradipta</span>
+						<span className={`text-gray-500 text-sm ${show ? "block" : "hidden"}`}>Cyintia Pradipta xxxx</span>
 					</div>
 					<div className="rounded-full w-10 h-10 overflow-hidden">
 						<img
@@ -34,6 +45,9 @@ const UserBar = () => {
 							className="w-full h-full object-cover"
 						/>
 					</div>
+					<button className="hidden group-hover:absolute group-hover:block right-0 bottom-[-25px] p-2 w-[70%] bg-green-600 rounded-lg text-center" onClick={logout}>
+						Log Out
+					</button>
 				</div>
 				<div className="flex gap-5 mr-3">
 					<button>

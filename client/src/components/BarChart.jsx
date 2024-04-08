@@ -1,9 +1,8 @@
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler } from "chart.js";
-import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Filler, Title, Tooltip, Legend);
-
-const Chart = ({ labels, datasets }) => {
+const BarChart = ({ labels, datasets }) => {
 	const options = {
 		responsive: true,
 		plugins: {
@@ -42,14 +41,12 @@ const Chart = ({ labels, datasets }) => {
 		datasets,
 	};
 
-	// return <>{type == "line" && <Line options={options} data={data} />}</>;
+	// const random = Math.floor(Math.random() * 100000);
 	return (
-		<>
-			<div className="w-24 flex self-end">
-				<Line options={options} data={data} />
-			</div>
-		</>
+		<div>
+			<Bar options={options} data={data} />
+		</div>
 	);
 };
 
-export default Chart;
+export default BarChart;

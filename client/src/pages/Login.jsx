@@ -1,16 +1,29 @@
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import person from "../assets/icons/person.png";
 import lock from "../assets/icons/lock.png";
 
 import Logo from "../components/Logo";
+import { login } from "../stores/userslice";
 
 const Login = () => {
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
+	const submitHandler = (e) => {
+		e.preventDefault();
+		const [email, password] = e.target;
+
+		dispatch(login({ email: email.value, password: password.value })).then((el) => {
+			if (!el.error) navigate("/");
+		});
+	};
+
 	return (
 		<div className="flex flex-col gap-7">
 			<Logo color="black" />
 			<h1 className="font-bold text-2xl">Login to your account</h1>
-			<form className="flex flex-col gap-7">
+			<form className="flex flex-col gap-7" onSubmit={submitHandler}>
 				<div className="flex flex-col gap-3">
 					<label htmlFor="email" className="text-sm font-bold">
 						Email Account
