@@ -132,8 +132,6 @@ const Home = () => {
 		setActive(name.value);
 	};
 
-	console.log(dataBar);
-
 	return (
 		<>
 			<div className="flex flex-col gap-7 px-7 pt-5 pb-10 border-2 border-gray-200 rounded-lg">

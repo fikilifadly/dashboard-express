@@ -4,7 +4,7 @@ import person from "../assets/icons/person.png";
 import lock from "../assets/icons/lock.png";
 
 import Logo from "../components/Logo";
-import { login } from "../stores/userslice";
+import { getProfile, login } from "../stores/userslice";
 
 const Login = () => {
 	const dispatch = useDispatch();
@@ -14,9 +14,13 @@ const Login = () => {
 		e.preventDefault();
 		const [email, password] = e.target;
 
-		dispatch(login({ email: email.value, password: password.value })).then((el) => {
-			if (!el.error) navigate("/");
-		});
+		dispatch(login({ email: email.value, password: password.value }))
+			.then((el) => {
+				if (!el.error) {
+					dispatch(getProfile());
+				}
+			})
+			.then(() => navigate("/"));
 	};
 
 	return (

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -7,7 +7,7 @@ import person from "../assets/icons/person.png";
 import notification from "../assets/icons/notification.png";
 import expand from "../assets/icons/expand.png";
 import collapse from "../assets/icons/collapse.png";
-import { getProfile, setNullCurrentUser } from "../stores/userslice";
+import { setNullCurrentUser } from "../stores/userslice";
 
 const UserBar = () => {
 	const { currentUser } = useSelector((state) => state.user);
@@ -24,10 +24,6 @@ const UserBar = () => {
 	const toggleShow = () => {
 		setShow(!show);
 	};
-
-	useEffect(() => {
-		dispatch(getProfile());
-	}, []);
 
 	return (
 		<div className="flex justify-between mb-8">

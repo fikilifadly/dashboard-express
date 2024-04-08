@@ -92,7 +92,8 @@ const userSlice = createSlice({
 			})
 			.addCase(getProfile.rejected, (state, { payload }) => {
 				state.loading = false;
-				state.errorMessage = payload.message;
+				state.errorMessage = payload;
+				console.log(state.errorMessage);
 			});
 	},
 });
@@ -102,6 +103,9 @@ export const login = createAsyncThunk("user/login", async (data, { rejectWithVal
 		const { data: result } = await AxiosJSON({
 			method: "POST",
 			url: "login",
+			headers: {
+				"content-type": "application/json",
+			},
 			data: JSON.stringify(data),
 		});
 
@@ -135,6 +139,10 @@ export const editProfile = createAsyncThunk("user/editProfile", async (data, { r
 		const { data: result } = await AxiosJSON({
 			method: "PATCH",
 			url: "/profile",
+			headers: {
+				Authorization: `Bearer ${localStorage.access_token ? localStorage.access_token : localStorage.getItem("access_token")}`,
+				"content-type": "application/json",
+			},
 			data,
 		});
 		return result;
@@ -147,6 +155,10 @@ export const getProfile = createAsyncThunk("user/getProfile", async (data, { rej
 	try {
 		const { data: result } = await AxiosJSON({
 			url: "/profile",
+			headers: {
+				Authorization: `Bearer ${localStorage.access_token ? localStorage.access_token : localStorage.getItem("access_token")}`,
+				"content-type": "application/json",
+			},
 		});
 
 		return result;
