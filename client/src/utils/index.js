@@ -24,4 +24,16 @@ const convertNumber = (num) => {
 	return num >= 1000 ? num.toLocaleString() : num.toString();
 };
 
-export { statusPeriod, convertNumber, AxiosJSON };
+const showModalHandler = (id) => {
+	if (id) {
+		document.getElementById(id).showModal();
+	} else {
+		document.getElementById("mainmodal").showModal();
+	}
+};
+
+const removeModalHandler = () => {
+	document.querySelector("dialog[open]").querySelector("form").submit();
+};
+
+export { statusPeriod, convertNumber, AxiosJSON, showModalHandler, removeModalHandler };
